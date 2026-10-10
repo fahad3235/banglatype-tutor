@@ -1,0 +1,17 @@
+# Dependencies / tooling (none required at runtime, but keep the tree clean)
+node_modules/
+dist/
+build/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.vscode/
+.idea/
+
+# Test artifacts
+test-results/
+playwright-report/
+screenshots/

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BanglaType Tutor — বাংলা / English Typing Tutor</title>
+<meta name="description" content="A free bilingual typing tutor for Bangla and English. Lessons, timed tests, WPM tracking, all offline.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<noscript><div class="noscript">BanglaType Tutor needs JavaScript to run. Please enable it.</div></noscript>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">⌨</span>
+      <div>
+        <h1 class="brand-name">BanglaType <span>Tutor</span></h1>
+        <p class="brand-sub" data-i18n="tagline">Type fast in বাংলা &amp; English</p>
+      </div>
+    </div>
+    <div class="topbar-controls">
+      <div class="seg" role="group" aria-label="UI language">
+        <button id="uiBn" class="seg-btn" type="button">বাং</button>
+        <button id="uiEn" class="seg-btn" type="button">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div id="storageWarn" class="warn hidden" role="alert"></div>
+
+  <section class="panel">
+    <div class="panel-head">
+      <div class="tabs" role="tablist" aria-label="Lesson language">
+        <button id="tabBn" class="tab active" role="tab" type="button">বাংলা</button>
+        <button id="tabEn" class="tab" role="tab" type="button">English</button>
+      </div>
+      <div class="seg" role="group" aria-label="Test duration">
+        <button class="seg-btn dur active" data-dur="60" type="button">1 <span data-i18n="min">min</span></button>
+        <button class="seg-btn dur" data-dur="180" type="button">3 <span data-i18n="min">min</span></button>
+        <button class="seg-btn dur" data-dur="300" type="button">5 <span data-i18n="min">min</span></button>
+      </div>
+    </div>
+    <div id="lessonGrid" class="lesson-grid"></div>
+  </section>
+
+  <section class="panel">
+    <div class="stats">
+      <div class="stat"><span class="stat-label" data-i18n="wpm">WPM</span><span class="stat-val" id="statWpm">0</span></div>
+      <div class="stat"><span class="stat-label" data-i18n="acc">Accuracy</span><span class="stat-val" id="statAcc">100%</span></div>
+      <div class="stat"><span class="stat-label" data-i18n="time">Time</span><span class="stat-val" id="statTime">1:00</span></div>
+      <div class="stat"><span class="stat-label" data-i18n="lesson">Lesson</span><span class="stat-val small" id="statLesson">—</span></div>
+    </div>
+
+    <div id="typeCard" class="type-card" tabindex="0" role="textbox"
+         aria-label="Typing area. Click here, then start typing." aria-multiline="false">
+      <div id="typeEmpty" class="type-empty" data-i18n="clickToStart">Click here and start typing…</div>
+      <div id="typeText" class="type-text" aria-hidden="true"></div>
+      <input id="typeInput" class="type-input" type="text" autocomplete="off"
+             autocorrect="off" autocapitalize="off" spellcheck="false"
+             aria-label="Typing input">
+    </div>
+    <div class="type-actions">
+      <button id="btnRestart" class="btn" type="button" data-i18n="restart">↻ Restart</button>
+      <span class="hint" data-i18n="hint">Tip: keep your eyes on the text, not the keyboard.</span>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2 class="panel-title" data-i18n="history">History</h2>
+    <div id="historyEmpty" class="empty" data-i18n="historyEmpty">No tests yet — finish a lesson to see it here.</div>
+    <div class="table-wrap hidden" id="historyWrap">
+      <table class="history-table">
+        <thead><tr>
+          <th data-i18n="colDate">Date</th><th data-i18n="colLesson">Lesson</th>
+          <th data-i18n="colDur">Duration</th><th>WPM</th><th data-i18n="colAcc">Acc.</th>
+        </tr></thead>
+        <tbody id="historyBody"></tbody>
+      </table>
+      <button id="btnClearHist" class="btn danger" type="button" data-i18n="clearHistory">Clear history</button>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <span data-i18n="foot">BanglaType Tutor · 100% offline · your data never leaves this browser</span>
+  </footer>
+</main>
+
+<div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-card">
+    <h2 id="modalTitle" data-i18n="results">Results</h2>
+    <div id="bestBadge" class="best-badge hidden">★ <span data-i18n="newBest">New best!</span></div>
+    <div class="result-grid">
+      <div class="result"><span class="result-label">WPM</span><span class="result-val" id="resWpm">0</span></div>
+      <div class="result"><span class="result-label" data-i18n="acc">Accuracy</span><span class="result-val" id="resAcc">0%</span></div>
+      <div class="result"><span class="result-label" data-i18n="correct">Correct</span><span class="result-val" id="resGood">0</span></div>
+      <div class="result"><span class="result-label" data-i18n="wrong">Wrong</span><span class="result-val" id="resBad">0</span></div>
+    </div>
+    <p class="result-lesson" id="resLesson"></p>
+    <div class="modal-actions">
+      <button id="btnRetry" class="btn primary" type="button" data-i18n="retry">Retry</button>
+      <button id="btnNext" class="btn" type="button" data-i18n="nextLesson">Next lesson →</button>
+      <button id="btnClose" class="btn" type="button" data-i18n="close">Close</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/lessons.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

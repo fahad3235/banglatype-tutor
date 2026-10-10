@@ -1,0 +1,43 @@
+/* BanglaType Tutor — UI strings (English + Bangla). */
+'use strict';
+
+const UI_STRINGS = {
+  en: {
+    tagline: 'Type fast in বাংলা & English',
+    min: 'min', wpm: 'WPM', acc: 'Accuracy', time: 'Time', lesson: 'Lesson',
+    clickToStart: 'Click here and start typing…',
+    restart: '↻ Restart',
+    hint: 'Tip: keep your eyes on the text, not the keyboard.',
+    history: 'History',
+    historyEmpty: 'No tests yet — finish a lesson to see it here.',
+    colDate: 'Date', colLesson: 'Lesson', colDur: 'Duration', colAcc: 'Acc.',
+    clearHistory: 'Clear history',
+    results: 'Results', newBest: 'New best!',
+    correct: 'Correct', wrong: 'Wrong',
+    retry: 'Retry', nextLesson: 'Next lesson →', close: 'Close',
+    foot: 'BanglaType Tutor · 100% offline · your data never leaves this browser',
+    storageWarn: 'LocalStorage is unavailable — progress will not be saved in this session.',
+    confirmClear: 'Clear all saved history and best scores?',
+    best: 'best',
+    testComplete: 'Test complete',
+  },
+  bn: {
+    tagline: 'বাংলা ও English-এ দ্রুত টাইপ করুন',
+    min: 'মিনিট', wpm: 'ডব্লিউপিএম', acc: 'নির্ভুলতা', time: 'সময়', lesson: 'পাঠ',
+    clickToStart: 'এখানে ক্লিক করে টাইপ শুরু করুন…',
+    restart: '↻ আবার শুরু',
+    hint: 'পরামর্শ: কিবোর্ডের দিকে নয়, লেখার দিকে তাকান।',
+    history: 'ইতিহাস',
+    historyEmpty: 'এখনো কোনো টেস্ট হয়নি — একটি পাঠ শেষ করলে এখানে দেখা যাবে।',
+    colDate: 'তারিখ', colLesson: 'পাঠ', colDur: 'সময়কাল', colAcc: 'নির্ভুলতা',
+    clearHistory: 'ইতিহাস মুছুন',
+    results: 'ফলাফল', newBest: 'নতুন সেরা!',
+    correct: 'সঠিক', wrong: 'ভুল',
+    retry: 'আবার চেষ্টা', nextLesson: 'পরের পাঠ →', close: 'বন্ধ করুন',
+    foot: 'বাংলাType টিউটর · সম্পূর্ণ অফলাইন · আপনার তথ্য এই ব্রাউজারেই থাকে',
+    storageWarn: 'লোকালস্টোরেজ পাওয়া যাচ্ছে না — এই সেশনে অগ্রগতি সংরক্ষণ হবে না।',
+    confirmClear: 'সব সংরক্ষিত ইতিহাস ও সেরা স্কোর মুছে ফেলবেন?',
+    best: 'সেরা',
+    testComplete: 'টেস্ট সম্পন্ন',
+  },
+};
